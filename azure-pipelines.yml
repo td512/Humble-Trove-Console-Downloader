@@ -72,13 +72,13 @@ jobs:
 
   steps:
     - task: UseDotNet@2
-      displayName: 'Use .NET Core sdk'
+      displayName: 'Use .NET Core SDK 3.0.100'
       inputs:
         packageType: sdk
         version: 3.0.100
         installationPath: $(Agent.ToolsDirectory)/dotnet
       
-    - script: 'dotnet publish -r osx.10.11-x64 -c release'
+    - script: 'dotnet publish -r osx-x64 -c release'
       displayName: Build native macOS executable
 
     - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
