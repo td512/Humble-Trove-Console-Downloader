@@ -71,6 +71,12 @@ jobs:
     vmImage: 'macOS-10.13'
 
   steps:
+    - script: 'wget https://download.visualstudio.microsoft.com/download/pr/5c281f95-91c4-499d-baa2-31fec919047a/38c6964d72438ac30032bce516b655d9/dotnet-sdk-3.0.100-osx-x64.pkg'
+      displayName: Fetch new installer version
+
+    - script: 'sudo installer -pkg dotnet-sdk-3.0.100-osx-x64.pkg -target /'
+      displayName: Upgrade DotNet SDK
+      
     - script: 'dotnet publish -r osx.10.11-x64 -c release'
       displayName: Build native macOS executable
 
