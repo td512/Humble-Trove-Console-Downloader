@@ -19,6 +19,3 @@ jobs:
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: winExe
-    
-    - publish: $(System.DefaultWorkingDirectory)/bin/WebApp
-      artifact: WebApp
