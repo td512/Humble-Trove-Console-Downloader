@@ -81,7 +81,7 @@ jobs:
     - script: 'dotnet publish -r osx-x64 -c release'
       displayName: Build native macOS executable
 
-    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/osx-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
       displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
 
     - task: PublishBuildArtifacts@1
