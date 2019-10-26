@@ -65,6 +65,490 @@ jobs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: linux-ubuntu-1804
 
+- job: Build_Linux_Binary_alpine
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r alpine -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-alpine
+
+- job: Build_Linux_Binary_alpine_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r alpine-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-alpine-x64
+
+- job: Build_Linux_Binary_android
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r android -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-android
+
+- job: Build_Linux_Binary_android_arm
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r android-arm -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-android-arm
+
+- job: Build_Linux_Binary_android_arm64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r android-arm64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-android-arm64
+
+- job: Build_Linux_Binary_centos7
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r centos.7 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-centos-7
+
+- job: Build_Linux_Binary_centos7_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r centos.7-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-centos-7-x64
+
+- job: Build_Linux_Binary_centos8
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r centos.8 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-centos-8
+
+- job: Build_Linux_Binary_centos8_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r centos.8-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-centos-8-x64
+
+- job: Build_Linux_Binary_fedora
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r fedora -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-fedora
+
+- job: Build_Linux_Binary_fedora_arm64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r fedora-arm64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-fedora-arm64
+
+- job: Build_Linux_Binary_fedora_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r fedora-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-fedora-x64
+
+- job: Build_Linux_Binary_debian
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r debian -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-debian
+
+
+- job: Build_Linux_Binary_debian_arm
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r debian-arm -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-debian-arm
+
+- job: Build_Linux_Binary_debian_arm64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r debian-arm64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-debian-arm64
+
+- job: Build_Linux_Binary_debian_armel
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r debian-armel -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-debian-armel
+
+- job: Build_Linux_Binary_debian_x86
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r debian-x86 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-debian-x86
+
+- job: Build_Linux_Binary_debian_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r debian-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-debian-x64
+
+- job: Build_Linux_Binary_freebsd
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r freebsd -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: bsd-freebsd
+
+- job: Build_Linux_Binary_freebsd_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r freebsd-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: bsd-freebsd-x64
+
+- job: Build_Linux_Binary_oracle_linux
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r ol -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-oracle
+
+- job: Build_Linux_Binary_opensuse
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r opensuse -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-opensuse
+
+- job: Build_Linux_Binary_opensuse_x64
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r opensuse-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-opensuse-x64
+
 - job: Build_MacOS
   
   pool:
