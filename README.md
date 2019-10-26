@@ -25,6 +25,35 @@ If you don't, the built installer is below.
 
 # Usage
 
+### Compatibility
+
+This application has been tested on the following platforms:
+
+| System                     | Status   | Notes                          |
+| -------------------------- | -------- | ------------------------------ |
+| Windows 7                  | &#9989;  |                                |
+| Windows 8.1                | &#9989;  |                                |
+| Windows 10                 | &#9989;  |                                |
+| macOS Sierra               | &#9989;  |                                |
+| macOS High Sierra          | &#9989;  |                                |
+| macOS Mojave               | &#9989;  |                                |
+| macOS Catalina             | &#9989;  |                                |
+| Debian 9                   | &#10060; | Errors with libcurl.so.4         |
+| Debian 10                  | &#10060; | Segmentation fault             |
+| Red Hat Enterprise Linux 6 | &#10060; | Errors with libcurl.so.4       |
+| Red Hat Enterprise Linux 7 | &#9989;  |                                |
+| Red Hat Enterprise Linux 8 | &#9989;  |                                |
+| CentOS 6                   | &#10060; | Errors with libcurl.so.4         |
+| CentOS 7                   | &#9989;  |                                |
+| CentOS 8                   | &#9989;  |                                |
+| openSUSE Leap 15           | &#9989;  |                                |
+| openSUSE Leap 42           | &#9989;  | Might want to rebuild for this |
+| Ubuntu 14.04               | &#9989;  | Must use 1604 build            |
+| Ubuntu 16.04               | &#9989;  | Must use 1604 build            |
+| Ubuntu 18.04               | &#9989;  |                                |
+| Ubuntu 19.04               | &#9989;  |                                |
+| Arch Linux                 | &#9989;  |                                |
+
 ### Session Key
 
 You will need to get a session key, [Instructions here](https://github.com/talonius/hb-downloader/wiki/Using-Session-Information-From-Windows-For-hb-downloader)
