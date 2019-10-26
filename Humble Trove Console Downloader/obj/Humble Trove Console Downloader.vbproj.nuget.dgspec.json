@@ -14,7 +14,6 @@
         "outputPath": "M:\\GitHub\\Humble Trove Console Downloader\\Humble Trove Console Downloader\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "M:\\GitHub\\Humble Trove Console Downloader\\Humble Trove Console Downloader\\NuGet.Config",
           "C:\\Users\\Theo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -22,8 +21,8 @@
           "netcoreapp3.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
