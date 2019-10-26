@@ -38,12 +38,12 @@ This application has been tested on the following platforms:
 | macOS High Sierra          | &#9989;  |                                |
 | macOS Mojave               | &#9989;  |                                |
 | macOS Catalina             | &#9989;  |                                |
-| Debian 9                   | &#10060; | Errors with libcurl.so.4         |
-| Debian 10                  | &#10060; | Segmentation fault             |
+| Debian 9                   | &#10060; | Errors with libcurl.so.4       |
+| Debian 10                  | &#10060; | Segmentation Fault             |
 | Red Hat Enterprise Linux 6 | &#10060; | Errors with libcurl.so.4       |
 | Red Hat Enterprise Linux 7 | &#9989;  |                                |
 | Red Hat Enterprise Linux 8 | &#9989;  |                                |
-| CentOS 6                   | &#10060; | Errors with libcurl.so.4         |
+| CentOS 6                   | &#10060; | Errors with libcurl.so.4       |
 | CentOS 7                   | &#9989;  |                                |
 | CentOS 8                   | &#9989;  |                                |
 | openSUSE Leap 15           | &#9989;  |                                |
