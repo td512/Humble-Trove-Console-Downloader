@@ -64,3 +64,28 @@ jobs:
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: linux-ubuntu-1804
+
+- job: Build_MacOS
+  
+  pool:
+    vmImage: 'macOS-10.14'
+
+  steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core SDK 3.0.100'
+      inputs:
+        packageType: sdk
+        version: 3.0.100
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+      
+    - script: 'dotnet publish -r osx-x64 -c release'
+      displayName: Build native macOS executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/osx-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish macOS executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: macos-high-sierra
