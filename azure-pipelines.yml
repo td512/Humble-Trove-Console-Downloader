@@ -71,14 +71,14 @@ jobs:
     vmImage: 'macOS-10.13'
 
   steps:
-    - script: 'dotnet publish -r osx.10.11-x64-c release'
+    - script: 'dotnet publish -r osx.10.11-x64 -c release'
       displayName: Build native macOS executable
 
     - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
       displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
 
     - task: PublishBuildArtifacts@1
-      displayName: Publish Linux executable
+      displayName: Publish macOS executable
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: macos-high-sierra
