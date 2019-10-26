@@ -50,7 +50,7 @@ jobs:
     vmImage: 'ubuntu-18.04'
 
   steps:
-    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
       displayName: Install dependencies
       
     - script: 'dotnet publish -r linux-x64 -c release'
