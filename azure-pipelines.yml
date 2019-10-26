@@ -11,6 +11,12 @@ jobs:
     - powershell:  dotnet publish -r win-x64 -c release 
       displayName: Build native Windows executable
 
+    - powershell: pwd
+      displayName: which directory are we in?
+
+    - powershell: ls .
+      displayName: list files
+
     - powershell: cp .\src\Humble Trove Console Downloader\bin\Release\netcoreapp3.0\win-x64\native\Humble Trove Console Downloader.exe $(Build.ArtifactStagingDirectory)
       displayName: Copy Humble Trove Console Downloader.exe to "Artifacts Staging Directory"
 
