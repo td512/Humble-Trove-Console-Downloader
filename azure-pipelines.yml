@@ -8,7 +8,7 @@ jobs:
     - powershell: choco install dotnetcore-sdk
       displayName: Install .NET Core 3.0 preview
 
-    - powershell:  dotnet publish -r win-x86 -c release 
+    - powershell:  dotnet publish -r win-x64 -c release 
       displayName: Build native Windows executable
 
     - powershell: cp .\src\Humble Trove Console Downloader\bin\Release\netcoreapp3.0\win-x64\native\Humble Trove Console Downloader.exe $(Build.ArtifactStagingDirectory)
