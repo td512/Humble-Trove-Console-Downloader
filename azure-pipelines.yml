@@ -1,20 +1,21 @@
-job: Build_Windows_Binary
+jobs:
+- job: Build_Windows_Binary
 
-pool:
-  vmImage: 'windows-2019'
+  pool:
+    vmImage: 'windows-2019'
 
-steps:
-  - powershell: choco install dotnetcore-sdk --pre
-    displayName: Install .NET Core 3.0 preview
+  steps:
+    - powershell: choco install dotnetcore-sdk --pre
+      displayName: Install .NET Core 3.0 preview
 
-  - powershell:  dotnet publish -r win-x86 -c release 
-    displayName: Build native Windows executable
+    - powershell:  dotnet publish -r win-x86 -c release 
+      displayName: Build native Windows executable
 
-  - powershell: cp .\src\Humble Trove Console Downloader\bin\Release\netcoreapp3.0\win-x64\native\Humble Trove Console Downloader.exe $(Build.ArtifactStagingDirectory)
-    displayName: Copy Humble Trove Console Downloader.exe to "Artifacts Staging Directory"
+    - powershell: cp .\src\Humble Trove Console Downloader\bin\Release\netcoreapp3.0\win-x64\native\Humble Trove Console Downloader.exe $(Build.ArtifactStagingDirectory)
+      displayName: Copy Humble Trove Console Downloader.exe to "Artifacts Staging Directory"
 
-  - task: PublishBuildArtifacts@1
-    displayName: Publish Windows executable
-    inputs:
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: winExe
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Windows executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: winExe
