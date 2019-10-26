@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Humble Trove Console Downloader": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"[insert session key here]\" /d torrent --platform linux"
+    }
+  }
+}

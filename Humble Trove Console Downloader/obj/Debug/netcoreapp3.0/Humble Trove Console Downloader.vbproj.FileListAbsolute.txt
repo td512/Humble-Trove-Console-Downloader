@@ -1,0 +1,13 @@
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Humble Trove Console Downloader.exe
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Humble Trove Console Downloader.deps.json
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Humble Trove Console Downloader.runtimeconfig.json
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Humble Trove Console Downloader.runtimeconfig.dev.json
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Humble Trove Console Downloader.dll
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Humble Trove Console Downloader.pdb
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Debug\netcoreapp3.0\Humble Trove Console Downloader.vbprojAssemblyReference.cache
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Debug\netcoreapp3.0\Humble Trove Console Downloader.AssemblyInfoInputs.cache
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Debug\netcoreapp3.0\Humble Trove Console Downloader.AssemblyInfo.vb
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Debug\netcoreapp3.0\Humble Trove Console Downloader.dll
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Debug\netcoreapp3.0\Humble Trove Console Downloader.pdb
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Debug\netcoreapp3.0\Humble Trove Console Downloader.vbproj.CopyComplete
