@@ -94,18 +94,21 @@ Module Program
         mac_links = mac_downloads.Count
         lin_links = lin_downloads.Count
         all_links = win_links + mac_links + lin_links
-
-        Console.WriteLine($"Windows: {win_links} available downloads")
-        Console.WriteLine($"Mac: {mac_links} available downloads")
-        Console.WriteLine($"Linux: {lin_links} available downloads")
-        Console.WriteLine($"Total: {all_links} available downloads")
-        Console.WriteLine("")
+        If verbose = True Then
+            Console.WriteLine($"Windows: {win_links} available downloads")
+            Console.WriteLine($"Mac: {mac_links} available downloads")
+            Console.WriteLine($"Linux: {lin_links} available downloads")
+            Console.WriteLine($"Total: {all_links} available downloads")
+            Console.WriteLine("")
+        End If
 
         Select Case platform
             Case "Windows"
                 downloads_to_complete = win_links
-                Console.WriteLine($"There are {win_links} files for me to download")
-                Console.WriteLine($"Creating directory {save_to}\Windows")
+                If verbose = True Then
+                    Console.WriteLine($"There are {win_links} files for me to download")
+                    Console.WriteLine($"Creating directory {save_to}\Windows")
+                End If
                 Directory.CreateDirectory(save_to & "\Windows")
                 For Each link In win_downloads
                     downloaded += 1
@@ -135,8 +138,10 @@ Module Program
                 Console.WriteLine($"Downloads completed in {human_time}")
             Case "Mac"
                 downloads_to_complete = mac_links
-                Console.WriteLine($"There are {mac_links} files for me to download")
-                Console.WriteLine($"Creating directory {save_to}\Mac")
+                If verbose = True Then
+                    Console.WriteLine($"There are {mac_links} files for me to download")
+                    Console.WriteLine($"Creating directory {save_to}\Mac")
+                End If
                 Directory.CreateDirectory(save_to & "\Mac")
                 For Each link In mac_downloads
                     downloaded += 1
@@ -166,8 +171,10 @@ Module Program
                 Console.WriteLine($"Downloads completed in {human_time}")
             Case "Linux"
                 downloads_to_complete = lin_links
-                Console.WriteLine($"There are {lin_links} files for me to download")
-                Console.WriteLine($"Creating directory {save_to}\Linux")
+                If verbose = True Then
+                    Console.WriteLine($"There are {lin_links} files for me to download")
+                    Console.WriteLine($"Creating directory {save_to}\Linux")
+                End If
                 Directory.CreateDirectory(save_to & "\Linux")
                 For Each link In lin_downloads
                     downloaded += 1
@@ -197,11 +204,15 @@ Module Program
                 Console.WriteLine($"Downloads completed in {human_time}")
             Case "All"
                 downloads_to_complete = all_links
-                Console.WriteLine($"There are {all_links} files for me to download")
-                Console.WriteLine($"Creating directory {save_to}\Windows")
-                Console.WriteLine($"Creating directory {save_to}\Mac")
-                Console.WriteLine($"Creating directory {save_to}\Linux")
+                If verbose = True Then
+                    Console.WriteLine($"There are {all_links} files for me to download")
+                    Console.WriteLine($"Creating directory {save_to}\Windows")
+                    Console.WriteLine($"Creating directory {save_to}\Mac")
+                    Console.WriteLine($"Creating directory {save_to}\Linux")
+                End If
                 Directory.CreateDirectory(save_to & "\Windows")
+                Directory.CreateDirectory(save_to & "\Mac")
+                Directory.CreateDirectory(save_to & "\Linux")
                 For Each link In win_downloads
                     downloaded += 1
                     Dim qs = New Uri(link).Query

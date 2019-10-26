@@ -10,3 +10,4 @@ M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Re
 M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Release\netcoreapp3.0\Humble Trove Console Downloader.vbproj.CopyComplete
 M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Release\netcoreapp3.0\Humble Trove Console Downloader.dll
 M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Release\netcoreapp3.0\Humble Trove Console Downloader.pdb
+M:\GitHub\Humble Trove Console Downloader\Humble Trove Console Downloader\obj\Release\netcoreapp3.0\Humble Trove Console Downloader.vbprojAssemblyReference.cache
