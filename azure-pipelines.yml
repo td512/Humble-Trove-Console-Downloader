@@ -6,7 +6,7 @@ jobs:
 
   steps:
     - powershell: choco install dotnetcore-sdk
-      displayName: Install .NET Core 3.0 preview
+      displayName: Install .NET Core 3.0
 
     - powershell:  dotnet publish -r win-x64 -c release 
       displayName: Build native Windows executable
@@ -19,3 +19,45 @@ jobs:
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: winExe
+
+- job: Build_Linux_Binary
+  
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  variables:
+    dotnetUrl: 'https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libcurl3 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 libcurl4-openssl-dev zlib1g-dev libkrb5-dev'
+      displayName: Install dependencies
+
+    - script: 'wget $(dotnetUrl)'
+      displayName: Download Microsoft repo
+
+    - script: 'sudo dpkg -i packages-microsoft-prod.deb'
+      displayName: Install Microsoft repo
+
+    - script: 'sudo apt update'
+      displayName: Update APT
+
+    - script: 'sudo apt install apt-transport-https'
+      displayName: Install APT HTTPS Transport
+
+    - script: 'sudo apt update'
+      displayName: Update APT (again)
+
+    - script: 'sudo apt-get install dotnet-sdk-3.0'
+      displayName: Install .NET SDK 3.0
+
+    - script: 'dotnet publish -r linux-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linExe
