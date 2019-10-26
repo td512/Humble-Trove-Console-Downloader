@@ -454,18 +454,18 @@ jobs:
       displayName: Install dependencies
       
     - script: 'dotnet publish -r freebsd -c release'
-      displayName: Build native Linux executable
+      displayName: Build native BSD executable
 
     - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
       displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
 
     - task: PublishBuildArtifacts@1
-      displayName: Publish Linux executable
+      displayName: Publish BSD executable
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: bsd-freebsd
 
-- job: Build_Linux_Binary_freebsd_x64
+- job: Build_BSD_Binary_freebsd_x64
   
   pool:
     vmImage: 'ubuntu-18.04'
@@ -475,13 +475,13 @@ jobs:
       displayName: Install dependencies
       
     - script: 'dotnet publish -r freebsd-x64 -c release'
-      displayName: Build native Linux executable
+      displayName: Build native BSD executable
 
     - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
       displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
 
     - task: PublishBuildArtifacts@1
-      displayName: Publish Linux executable
+      displayName: Publish BSD executable
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: bsd-freebsd-x64
@@ -549,7 +549,7 @@ jobs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: linux-opensuse-x64
 
-- job: Build_MacOS
+- job: Build_MacOS_Binary
   
   pool:
     vmImage: 'macOS-10.14'
