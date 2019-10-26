@@ -29,7 +29,7 @@ jobs:
     dotnetUrl: 'https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb'
 
   steps:
-    - script: 'sudo apt install -y liblttng-ust0 libcurl4 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 libcurl4-openssl-dev zlib1g-dev libkrb5-dev'
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 libcurl4-openssl-dev zlib1g-dev libkrb5-dev'
       displayName: Install dependencies
       
     - script: 'dotnet publish -r linux-x64 -c release'
