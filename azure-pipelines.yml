@@ -81,4 +81,4 @@ jobs:
       displayName: Publish Linux executable
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: linux-ubuntu-1804
+        artifactName: macos-high-sierra
