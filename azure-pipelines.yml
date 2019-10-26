@@ -18,7 +18,7 @@ jobs:
       displayName: Publish Windows executable
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: winExe
+        artifactName: windows
 
 - job: Build_Linux_Binary_1604
   
@@ -29,7 +29,7 @@ jobs:
     dotnetUrl: 'https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb'
 
   steps:
-    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 zlib1g-dev libkrb5-dev'
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
       displayName: Install dependencies
       
     - script: 'dotnet publish -r linux-x64 -c release'
@@ -43,3 +43,24 @@ jobs:
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         artifactName: linux-ubuntu-1604
+
+- job: Build_Linux_Binary_1804
+  
+  pool:
+    vmImage: 'ubuntu-18.04'
+
+  steps:
+    - script: 'sudo apt install -y liblttng-ust0 libssl1.0.0 libkrb5-3 zlib1g libicu55 wget clang-3.9 zlib1g-dev libkrb5-dev libcurl4-openssl-dev'
+      displayName: Install dependencies
+      
+    - script: 'dotnet publish -r linux-x64 -c release'
+      displayName: Build native Linux executable
+
+    - script: 'cp "./Humble Trove Console Downloader/bin/Release/netcoreapp3.0/linux-x64/native/Humble Trove Console Downloader" $(Build.ArtifactStagingDirectory)'
+      displayName: Copy Humble Trove Console Downloader to "Artifacts Staging Directory"
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Linux executable
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: linux-ubuntu-1804
