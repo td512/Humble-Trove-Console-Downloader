@@ -29,6 +29,9 @@ jobs:
     dotnetUrl: 'https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb'
 
   steps:
+    - script: 'sudo apt install -y clang-3.9'
+      displayName: Install Clang
+      
     - script: 'dotnet publish -r linux-x64 -c release'
       displayName: Build native Linux executable
 
