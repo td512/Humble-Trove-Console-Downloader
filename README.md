@@ -29,19 +29,18 @@ If you don't, the built installer is below.
 
 You will need to get a session key, [Instructions here](https://github.com/talonius/hb-downloader/wiki/Using-Session-Information-From-Windows-For-hb-downloader)
 
-
 ### Arguments
 
-The program takes 4 arguments:
+This application takes up to 5 arguments:
+* `/v`, `-v`, `--verbose`  - Print verbose status messages. Defaults to false
+* `/t`, `-t`, `--token`    - Humble Bundle Session Key
+* `/d`, `-d`, `--download` - What to download from Humble's servers. Accepts `Direct`, or `Torrent`
+* `/p`, `-p`, `--platform` - What platform to downlod for. Accepts `Windows`, `Linux`, `Mac`, or `All`
+* `/s`, `-s`, `--save`     - Where to save to. Defaults to the terminal's current directory
 
-* Session Key - Required
-* Location - Optional - defaults to same folder.
-* Platform - Optional - defaults to Windows
-* Download Type - Optional - defaults to direct
+### Actually using it
 
-### Actually using it - Windows
-
-1. Open up the application. If you've missed anything, it'll let you know
+1. In a terminal (be it PowerShell, iTerm2, or Termite), run `trove`. If you've missed anything, it'll let you know
 
 ### FAQ
 
@@ -51,13 +50,11 @@ The program takes 4 arguments:
 
 * It crashed! Help!
 
-> File an issue [here](https://github.com/td512/Humble-Trove-Downloader/issues) and I'll take a look. If you've got the .NET stack trace, please include that in your report
+> File an issue [here](https://github.com/td512/Humble-Trove-Console-Downloader/issues) and I'll take a look. If you've got the .NET stack trace, please include that in your report
  
 ****
 
 # Improving this
-
-I also plan to add Mac support, but for now, this will do.
 
 If you have any ideas on how to improve this, submit a PR, PM me on reddit (/u/td512) or ping me on discord (TheoM#0331)
 
