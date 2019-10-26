@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Threading
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
+Imports System.Runtime.InteropServices
 
 Module Program
 
@@ -28,6 +29,7 @@ Module Program
     Public time = New Integer
     Public timethread As New Thread(AddressOf ThreadedTimer)
     Public abort_thread = False
+    Public seperator = ""
 
     Sub Main(args As String())
         If args.Length = 0 Then
@@ -60,9 +62,16 @@ Module Program
             save_to = GetArg("s", "save")
         End If
 
+        If RuntimeInformation.IsOSPlatform(OSPlatform.Windows) Then
+            seperator = "\"
+        Else
+            seperator = "/"
+        End If
+
         Console.WriteLine($"Download: {download_type}")
         Console.WriteLine($"Platform: {platform}")
         Console.WriteLine($"Saving To: {save_to}")
+        Console.WriteLine($"Slash: {seperator}")
 
         Console.WriteLine("Fetching chunks, please wait...")
         timethread.Start()
@@ -107,7 +116,7 @@ Module Program
                 downloads_to_complete = win_links
                 If verbose = True Then
                     Console.WriteLine($"There are {win_links} files for me to download")
-                    Console.WriteLine($"Creating directory {save_to}\Windows")
+                    Console.WriteLine($"Creating directory {save_to}{seperator}Windows")
                 End If
                 Directory.CreateDirectory(save_to & "\Windows")
                 For Each link In win_downloads
@@ -126,7 +135,7 @@ Module Program
                         Continue For
                     End If
                     Dim this_filename = Path.GetFileName(New Uri(this_dl).LocalPath)
-                    Dim this_filepath = $"{save_to}\Windows\{this_filename}"
+                    Dim this_filepath = $"{save_to}{seperator}Windows\{this_filename}"
                     GetFileURL(this_dl, this_filepath).Wait()
                     Console.SetCursorPosition(0, Console.CursorTop - 1)
                     Console.WriteLine($"I've downloaded {downloaded} / {win_links} files, {win_links - downloaded} files left")
@@ -140,7 +149,7 @@ Module Program
                 downloads_to_complete = mac_links
                 If verbose = True Then
                     Console.WriteLine($"There are {mac_links} files for me to download")
-                    Console.WriteLine($"Creating directory {save_to}\Mac")
+                    Console.WriteLine($"Creating directory {save_to}{seperator}Mac")
                 End If
                 Directory.CreateDirectory(save_to & "\Mac")
                 For Each link In mac_downloads
@@ -159,7 +168,7 @@ Module Program
                         Continue For
                     End If
                     Dim this_filename = Path.GetFileName(New Uri(this_dl).LocalPath)
-                    Dim this_filepath = $"{save_to}\Mac\{this_filename}"
+                    Dim this_filepath = $"{save_to}{seperator}Mac\{this_filename}"
                     GetFileURL(this_dl, this_filepath).Wait()
                     Console.SetCursorPosition(0, Console.CursorTop - 1)
                     Console.WriteLine($"I've downloaded {downloaded} / {mac_links} files, {mac_links - downloaded} files left")
@@ -173,7 +182,7 @@ Module Program
                 downloads_to_complete = lin_links
                 If verbose = True Then
                     Console.WriteLine($"There are {lin_links} files for me to download")
-                    Console.WriteLine($"Creating directory {save_to}\Linux")
+                    Console.WriteLine($"Creating directory {save_to}{seperator}Linux")
                 End If
                 Directory.CreateDirectory(save_to & "\Linux")
                 For Each link In lin_downloads
@@ -192,7 +201,7 @@ Module Program
                         Continue For
                     End If
                     Dim this_filename = Path.GetFileName(New Uri(this_dl).LocalPath)
-                    Dim this_filepath = $"{save_to}\Linux\{this_filename}"
+                    Dim this_filepath = $"{save_to}{seperator}Linux\{this_filename}"
                     GetFileURL(this_dl, this_filepath).Wait()
                     Console.SetCursorPosition(0, Console.CursorTop - 1)
                     Console.WriteLine($"I've downloaded {downloaded} / {lin_links} files, {lin_links - downloaded} files left")
@@ -206,9 +215,9 @@ Module Program
                 downloads_to_complete = all_links
                 If verbose = True Then
                     Console.WriteLine($"There are {all_links} files for me to download")
-                    Console.WriteLine($"Creating directory {save_to}\Windows")
-                    Console.WriteLine($"Creating directory {save_to}\Mac")
-                    Console.WriteLine($"Creating directory {save_to}\Linux")
+                    Console.WriteLine($"Creating directory {save_to}{seperator}Windows")
+                    Console.WriteLine($"Creating directory {save_to}{seperator}Mac")
+                    Console.WriteLine($"Creating directory {save_to}{seperator}Linux")
                 End If
                 Directory.CreateDirectory(save_to & "\Windows")
                 Directory.CreateDirectory(save_to & "\Mac")
@@ -229,7 +238,7 @@ Module Program
                         Continue For
                     End If
                     Dim this_filename = Path.GetFileName(New Uri(this_dl).LocalPath)
-                    Dim this_filepath = $"{save_to}\Windows\{this_filename}"
+                    Dim this_filepath = $"{save_to}{seperator}Windows\{this_filename}"
                     GetFileURL(this_dl, this_filepath).Wait()
                     Console.SetCursorPosition(0, Console.CursorTop - 1)
                     Console.WriteLine($"I've downloaded {downloaded} / {all_links} files, {all_links - downloaded} files left")
@@ -250,7 +259,7 @@ Module Program
                         Continue For
                     End If
                     Dim this_filename = Path.GetFileName(New Uri(this_dl).LocalPath)
-                    Dim this_filepath = $"{save_to}\Mac\{this_filename}"
+                    Dim this_filepath = $"{save_to}{seperator}Mac\{this_filename}"
                     GetFileURL(this_dl, this_filepath).Wait()
                     Console.SetCursorPosition(0, Console.CursorTop - 1)
                     Console.WriteLine($"I've downloaded {downloaded} / {all_links} files, {all_links - downloaded} files left")
@@ -271,7 +280,7 @@ Module Program
                         Continue For
                     End If
                     Dim this_filename = Path.GetFileName(New Uri(this_dl).LocalPath)
-                    Dim this_filepath = $"{save_to}\Linux\{this_filename}"
+                    Dim this_filepath = $"{save_to}{seperator}Linux\{this_filename}"
                     GetFileURL(this_dl, this_filepath).Wait()
                     Console.SetCursorPosition(0, Console.CursorTop - 1)
                     Console.WriteLine($"I've downloaded {downloaded} / {all_links} files, {all_links - downloaded} files left")
