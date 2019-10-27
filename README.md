@@ -19,6 +19,8 @@ If you have Visual Studio then you can compile it yourself.
 If you don't, the built installer is below.  
 * [Windows](https://ltscdn.m6.nz/humble/trove-downloader.exe?version=1.6.0&utm_source=htd-github)
 
+* Brew (Mac): Tap the repo (`brew tap td512/taps`), then install the tap (`brew install trove`)
+
 * If you built the application, in `bin\Release` will be the downloader. Run that, and continue on!
 
 ****
